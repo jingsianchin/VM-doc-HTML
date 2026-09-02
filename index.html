@@ -43,16 +43,16 @@
     }
 
     [data-theme="light"] {
-      --bg-primary: #f6f8fa;
-      --bg-secondary: #ffffff;
-      --bg-tertiary: #eaeef2;
-      --bg-card: rgba(255, 255, 255, 0.95);
-      --bg-glass: rgba(246, 248, 250, 0.9);
-      --border-color: #d0d7de;
+      --bg-primary: #f8fafc;
+      --bg-secondary: rgba(255, 255, 255, 0.92);
+      --bg-tertiary: #edf2f7;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --bg-glass: rgba(248, 250, 252, 0.82);
+      --border-color: #cbd5e1;
       --border-focus: #0969da;
-      --text-main: #1f2328;
-      --text-muted: #57606a;
-      --text-dim: #8c959f;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #64748b;
       
       --vbox-purple: #7c3aed;
       --vbox-purple-dark: #5b21b6;
@@ -67,9 +67,9 @@
       --accent-green-glow: rgba(5, 150, 105, 0.15);
       --accent-red: #cf222e;
       
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-      --shadow-md: 0 8px 24px rgba(0,0,0,0.09);
-      --shadow-lg: 0 16px 40px rgba(0,0,0,0.12);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.07);
+      --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.1);
     }
 
     * {
@@ -85,7 +85,16 @@
 
     body {
       font-family: var(--font-sans);
-      background-color: var(--bg-primary);
+      background-color: #0b0e14;
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        radial-gradient(circle at 12% 12%, rgba(139, 92, 246, 0.16) 0%, transparent 38%),
+        radial-gradient(circle at 88% 14%, rgba(0, 163, 166, 0.18) 0%, transparent 40%),
+        radial-gradient(circle at 50% 55%, rgba(0, 120, 212, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 18% 88%, rgba(16, 185, 129, 0.09) 0%, transparent 42%),
+        linear-gradient(180deg, #0b0e14 0%, #0d121c 50%, #080b10 100%);
+      background-size: 28px 28px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+      background-attachment: fixed;
       color: var(--text-main);
       line-height: 1.6;
       display: flex;
@@ -95,20 +104,33 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    [data-theme="light"] body {
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 12% 12%, rgba(124, 58, 237, 0.08) 0%, transparent 38%),
+        radial-gradient(circle at 88% 14%, rgba(0, 125, 128, 0.09) 0%, transparent 40%),
+        radial-gradient(circle at 50% 60%, rgba(0, 90, 158, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+      background-size: 28px 28px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+      background-attachment: fixed;
+    }
+
     /* Top Sticky Header */
     .top-header {
       position: sticky;
       top: 0;
       z-index: 100;
       background: var(--bg-glass);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border-color);
       padding: 0.75rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
     .brand {
@@ -230,7 +252,9 @@
       overflow-y: auto;
       border-right: 1px solid var(--border-color);
       padding: 1.5rem 1rem;
-      background: var(--bg-primary);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     .nav-section-title {
@@ -440,7 +464,9 @@
 
     /* Tables */
     .table-container {
-      background: var(--bg-secondary);
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       overflow-x: auto;
@@ -593,7 +619,9 @@
     }
 
     .step-card {
-      background: var(--bg-secondary);
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       overflow: hidden;
@@ -603,7 +631,8 @@
 
     .step-card:hover {
       border-color: var(--text-muted);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      transform: translateY(-2px);
     }
 
     .step-header {
@@ -1100,10 +1129,13 @@
 
     /* Calculator & Checklist */
     .tool-box {
-      background: var(--bg-secondary);
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
       margin-bottom: 1.5rem;
     }
 
